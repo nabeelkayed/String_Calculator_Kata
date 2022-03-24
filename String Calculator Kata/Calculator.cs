@@ -4,7 +4,6 @@ namespace String_Calculator_Kata
 {
     public class Calculator
     {
-
         public int add(String numbers)
         {
             int sum = 0;
@@ -12,7 +11,7 @@ namespace String_Calculator_Kata
             {
                 return 0;
             }
-            string[] arrnumbers = numbers.Split(',');
+            string[] arrnumbers = numbers.Split(',','\n');
             Array.ForEach(arrnumbers, i => sum += int.Parse(i));
             return sum;
         }

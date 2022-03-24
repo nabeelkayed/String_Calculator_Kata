@@ -32,5 +32,23 @@ namespace Calculator_Test
              
             Assert.Equal(3, x);
         }
+        [Fact]
+        public void AddNumbersInStringWithDifferentDelimiter()
+        {
+            Calculator newcalculator = new Calculator();
+
+            int x = newcalculator.add("1\n2");
+
+            Assert.Equal(3, x);
+        }
+        [Fact]
+        public void AddNumbersInStringWithDifferentDelimiter1()
+        {
+            Calculator newcalculator = new Calculator();
+
+            int x = newcalculator.add("1\n2,3");
+
+            Assert.Equal(6, x);
+        }
     }
 }

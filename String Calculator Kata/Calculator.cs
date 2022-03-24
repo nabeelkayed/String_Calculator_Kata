@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace String_Calculator_Kata
 {
@@ -25,10 +26,32 @@ namespace String_Calculator_Kata
             {
                 NewNumbers = numbers;
             }
-           
+            
             string[] arrnumbers = NewNumbers.Split(delimiter,',','\n');
-            Array.ForEach(arrnumbers, i => sum += int.Parse(i));
-            return sum;
+           
+            string [] mins= new string[arrnumbers.Count(n => int.Parse(n) < 0)];
+            int m = 0;
+            bool flag = false;
+            for (int i = 0; i < arrnumbers.Length; i++)
+            {
+                if (int.Parse(arrnumbers[i]+"") < 0)
+                {
+                    flag = true;
+                    mins[m] += arrnumbers[i];
+                    m++;
+                }
+            }
+            string mm = string.Join(", ", mins);
+            if (flag)
+            {
+                throw new Exception("Negatives Not Allowed: " + mm);
+            }
+            else
+            {
+                Array.ForEach(arrnumbers, i => sum += int.Parse(i));
+                return sum;
+            }
+            
         }
     }
 }

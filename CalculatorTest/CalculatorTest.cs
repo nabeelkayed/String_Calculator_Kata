@@ -1,5 +1,6 @@
 using Xunit;
 using String_Calculator_Kata;
+using System;
 
 namespace Calculator_Test
 {
@@ -58,6 +59,24 @@ namespace Calculator_Test
             int x = newcalculator.add("//;\n1;2;8");
 
             Assert.Equal(11, x);
+        }
+        [Fact]
+        public void AddNumbersInStringWithDifferentDelimiter23()
+        {
+            Calculator newcalculator = new Calculator();
+
+            var ex = Assert.Throws<Exception>(() => newcalculator.add("1,2,-1"));
+            Assert.Equal("Negatives Not Allowed: -1", ex.Message);
+
+        }
+        [Fact]
+        public void AddNumbersInStringWithDifferentDelimiter24()
+        {
+            Calculator newcalculator = new Calculator();
+
+            var ex = Assert.Throws<Exception>(() => newcalculator.add("1,2,-1,-3,-4"));
+            Assert.Equal("Negatives Not Allowed: -1, -3, -4", ex.Message);
+
         }
     }
 }

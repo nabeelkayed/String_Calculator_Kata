@@ -48,7 +48,12 @@ namespace String_Calculator_Kata
             }
             else
             {
-                Array.ForEach(arrnumbers, i => sum += int.Parse(i));
+                Array.ForEach(arrnumbers, i => {
+                    if (int.Parse(i) <= 1000)
+                    {
+                        sum += int.Parse(i);
+                    }
+                });
                 return sum;
             }
             

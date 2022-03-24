@@ -78,5 +78,15 @@ namespace Calculator_Test
             Assert.Equal("Negatives Not Allowed: -1, -3, -4", ex.Message);
 
         }
+        [Fact]
+        public void AddNumbersInStringWithDifferentDelimiter25()
+        {
+            Calculator newcalculator = new Calculator();
+
+            int x = newcalculator.add("1,2,100,1001");
+
+            Assert.Equal(103, x);
+
+        }
     }
 }

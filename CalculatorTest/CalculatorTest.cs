@@ -50,5 +50,14 @@ namespace Calculator_Test
 
             Assert.Equal(6, x);
         }
+        [Fact]
+        public void AddNumbersInStringWithDifferentDelimiter22()
+        {
+            Calculator newcalculator = new Calculator();
+
+            int x = newcalculator.add("//;\n1;2;8");
+
+            Assert.Equal(11, x);
+        }
     }
 }

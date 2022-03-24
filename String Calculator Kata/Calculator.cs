@@ -11,7 +11,22 @@ namespace String_Calculator_Kata
             {
                 return 0;
             }
-            string[] arrnumbers = numbers.Split(',','\n');
+            char delimiter = ','; 
+            string NewNumbers = "";
+            if (numbers[0] == '/')
+            {
+                delimiter= numbers[2];
+                for (int i = 4; i < numbers.Length; i++)
+                {
+                    NewNumbers += numbers[i];
+                }
+            }
+            else
+            {
+                NewNumbers = numbers;
+            }
+           
+            string[] arrnumbers = NewNumbers.Split(delimiter,',','\n');
             Array.ForEach(arrnumbers, i => sum += int.Parse(i));
             return sum;
         }
